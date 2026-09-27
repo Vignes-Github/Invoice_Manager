@@ -38,10 +38,14 @@ class PostgresConnection {
     }
 
     public async connectPG() {
+        if(this.client) {
+            return
+        }
         this.client = await this.pool.connect();
     }
 
-    public getClient() {
+    public async getClient() : Promise<PoolClient> {
+        await this.connectPG();
         return this.client;
     }
 }

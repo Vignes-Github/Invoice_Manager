@@ -9,6 +9,7 @@ class Print {
     log(...args:any) {
         if(this.customPrefix) {
             console.log(this.prefix, `[${this.customPrefix}]`, ...args);
+            return
         }
         console.log(this.prefix, ...args);
     }
@@ -17,6 +18,7 @@ class Print {
     error(...args:any) {
         if(this.customPrefix) {
             console.error(this.prefix, `[${this.customPrefix}]`, ...args);
+            return
         }
         console.error(this.prefix, ...args);
     }
