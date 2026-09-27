@@ -125,3 +125,65 @@ class UserRepo {
 }
 
 export default UserRepo
+
+
+// Need to update
+// public async getUser(filters: IUserFilter) {
+//     await this.getClient();
+
+//     try {
+//         const conditions: string[] = [];
+//         const values: any[] = [];
+
+//         if (filters.id !== undefined) {
+//             values.push(filters.id);
+//             conditions.push(`id = $${values.length}`);
+//         }
+
+//         if (filters.username !== undefined) {
+//             values.push(filters.username);
+//             conditions.push(`username = $${values.length}`);
+//         }
+
+//         if (filters.mailId !== undefined) {
+//             values.push(filters.mailId);
+//             conditions.push(`mailId = $${values.length}`);
+//         }
+
+//         if (filters.active !== undefined) {
+//             values.push(filters.active);
+//             conditions.push(`active = $${values.length}`);
+//         }
+
+//         if (conditions.length === 0) {
+//             throw new Error("At least one search parameter is required");
+//         }
+
+//         const query = `
+//             SELECT
+//                 id,
+//                 firstName,
+//                 lastName,
+//                 username,
+//                 mailId,
+//                 active,
+//                 created_at,
+//                 updated_at
+//             FROM users
+//             WHERE ${conditions.join(" AND ")}
+//         `;
+
+//         const result = await this.client.query(query, values);
+
+//         this.print.log("User fetched successfully");
+
+//         return result.rows;
+//     } catch (error) {
+//         this.print.error(
+//             "Error happened while fetching user details",
+//             error
+//         );
+
+//         throw error;
+//     }
+// }
