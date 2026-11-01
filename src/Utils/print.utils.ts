@@ -1,3 +1,9 @@
+
+/**
+ * Used to print message in the console
+ * 
+ * @param label: string - `Optional` - `if there is any custom label need to be added after the default label`
+ */
 class Print {
     private customPrefix:string | null = null;
     private readonly prefix = '[Server]';

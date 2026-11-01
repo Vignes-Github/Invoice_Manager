@@ -1,6 +1,6 @@
 import {Pool, PoolClient} from 'pg';
 import { config } from 'dotenv';
-import Print from '../utils/print.utils';
+import Print from '../Utils/print.utils';
 
 config();
 
@@ -10,7 +10,7 @@ class PostgresConnection {
 
     private pool!:Pool;
     private client!:PoolClient;
-    private readonly print:Print = new Print('Database');
+    private readonly print:Print = new Print('Postgres');
 
     private constructor() {
         this.pool = new Pool({
@@ -22,7 +22,7 @@ class PostgresConnection {
         })
 
         this.pool.on('connect', (pool:PoolClient) => {
-            this.print.log('Postgres Database Connected..')
+            this.print.log('Connected..')
         })
 
         this.pool.on('error', (error:any) => {

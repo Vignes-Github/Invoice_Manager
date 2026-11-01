@@ -1,8 +1,9 @@
 import { config } from "dotenv";
 import express, { Application, Request, Response } from "express";
-import Print from "./utils/print.utils";
+import Print from "./Utils/print.utils";
 import PostgresConnection from "./Database/connection";
 import indexRouter from "./Routes/index.routes";
+import cookieParser from "cookie-parser";
 
 config();
 
@@ -17,6 +18,7 @@ async function bootstrap() {
 
         // Middleware
         app.use(express.json());
+        app.use(cookieParser());
 
         // Routes
         app.use("/", indexRouter);

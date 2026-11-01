@@ -3,10 +3,13 @@ import UserController from '../Controller/user.controller';
 
 const userRouter = express.Router();
 const controller = new UserController();
-controller.init();
+
+controller.createTableIfNotExists();
 
 // Routes
-userRouter.post('/', controller.createUser);
+
+userRouter.get('/', controller.getUser);
+userRouter.get('/condition', controller.getUserByCondition);
 
 
 export default userRouter
